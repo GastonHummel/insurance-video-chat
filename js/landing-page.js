@@ -1190,7 +1190,7 @@ var CtaButtons = {
           setTimeout(() => {
             chatDiv.classList.remove('hide-chat');
             chatDiv.classList.add('show-chat');
-          }, 1000);
+          }, 1100);
         }
 
         // $('#cvChatContainer').find('#cvMessages').empty();
