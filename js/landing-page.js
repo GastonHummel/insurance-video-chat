@@ -1187,8 +1187,8 @@ var CtaButtons = {
           chatDiv.classList.remove('hide-chat');
           chatIframe.src = './assets/spinner.html';
           //refresh url
-          chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
           chatDiv.classList.add('show-chat');
+          chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
         }
 
         // $('#cvChatContainer').find('#cvMessages').empty();
