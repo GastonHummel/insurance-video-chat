@@ -53,7 +53,7 @@ var Translations = {
     },
     button2: {
       chat: '',
-      label: 'Chat to us',
+      label: 'Chat with us',
       icon: 'save',
     },
   },

@@ -1178,12 +1178,15 @@ var CtaButtons = {
         }
 
         const chatDiv = document.querySelector('#chat');
+        const chatIframe = document.querySelector('#chatIframe');
+
         if (chatDiv.classList.contains('show-chat')) {
           chatDiv.classList.remove('show-chat');
           chatDiv.classList.add('hide-chat');
         } else {
           chatDiv.classList.remove('hide-chat');
           //refresh url
+          chatIframe.src = 'start&docId=ob-1a2b3c4d5e&section=Mortgage%20Offer';
           chatDiv.classList.add('show-chat');
         }
 
