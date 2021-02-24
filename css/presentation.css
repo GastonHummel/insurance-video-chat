@@ -1313,8 +1313,13 @@
   left: calc((100vw - 300px) / 2);
   /* border: 1px solid black; */
   width: 300px;
-  height: 500px;
+  height: 0px;
   z-index: 10000;
+  transition: all 2s;
+}
+
+#chat.show-chat {
+  height: 500px;
 }
 
 @media screen and (max-width: 375px) and (orientation: portrait) {

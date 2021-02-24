@@ -14,13 +14,13 @@
   transform: none;
 }
 
-.show-chat {
+/* .show-chat {
   visibility: visible;
 }
 
 .hide-chat {
   visibility: hidden;
-}
+} */
 
 .modal-dialog {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
