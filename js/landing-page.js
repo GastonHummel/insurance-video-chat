@@ -1184,13 +1184,13 @@ var CtaButtons = {
           chatDiv.classList.remove('show-chat');
           chatDiv.classList.add('hide-chat');
         } else {
-          chatDiv.classList.remove('hide-chat');
           //   chatIframe.src = './assets/spinner.html';
           //refresh url
           chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
-          chatIframe.onload = function () {
+          setTimeout(() => {
+            chatDiv.classList.remove('hide-chat');
             chatDiv.classList.add('show-chat');
-          };
+          }, 1000);
         }
 
         // $('#cvChatContainer').find('#cvMessages').empty();
