@@ -1185,10 +1185,12 @@ var CtaButtons = {
           chatDiv.classList.add('hide-chat');
         } else {
           chatDiv.classList.remove('hide-chat');
-          chatIframe.src = './assets/spinner.html';
+          //   chatIframe.src = './assets/spinner.html';
           //refresh url
-          chatDiv.classList.add('show-chat');
           chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
+          chatIframe.onload = function () {
+            chatDiv.classList.add('show-chat');
+          };
         }
 
         // $('#cvChatContainer').find('#cvMessages').empty();
