@@ -1316,28 +1316,12 @@
   height: 0px;
   opacity: 0;
   z-index: 10000;
-  /* transition: all 2s; */
-  animation-name: grow;
+  transition: all 2s;
 }
 
 #chat.show-chat {
   height: 500px;
   opacity: 1;
-}
-
-@keyframes grow {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @media screen and (max-width: 375px) and (orientation: portrait) {
