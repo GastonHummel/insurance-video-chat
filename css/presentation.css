@@ -175,7 +175,8 @@
 
 .cta__button {
   color: #fff;
-  background-color: #39006b;
+  /* background-color: #39006b; */
+  background-color: #0072b8;
   border: 0;
   font-family: Arial;
   font-size: 28px;
@@ -508,7 +509,8 @@
 }
 
 .timeline-progress {
-  background-color: #39006b;
+  /* background-color: #39006b; */
+  background-color: #0072b8;
 }
 
 .timeline-chapters--seen {
@@ -542,7 +544,8 @@
 }
 
 .timeline-volume__level {
-  background-color: #39006b;
+  /* background-color: #39006b; */
+  background-color: #0072b8;
   border-radius: 5px;
 }
 
