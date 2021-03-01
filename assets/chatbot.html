@@ -57,25 +57,26 @@
     <script src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.min.js"></script>
   </head>
   <script type="text/javascript">
-    $.urlParam = function (name) {
-      const results = new RegExp('[?&]' + name + '=([^&#]*)').exec(window.location.href);
-      return results[1] || 0;
-    };
-    const startPhrase = 'start&docId=' + $.urlParam('doc_id') + '&section=' + decodeURIComponent($.urlParam('section'));
-    console.log('startPhrase: ' + startPhrase);
+    // $.urlParam = function (name) {
+    //   const results = new RegExp('[?&]' + name + '=([^&#]*)').exec(window.location.href);
+    //   return results[1] || 0;
+    // };
+    // const startPhrase = 'start&docId=' + $.urlParam('doc_id') + '&section=' + decodeURIComponent($.urlParam('section'));
+    // console.log('startPhrase: ' + startPhrase);
+    const startPhrase = 'start';
     localStorage.clear();
     $(function () {
       var options = {
         placeholder: 'Type a message...',
         showCloseButton: false,
-        host: 'https://webchat-converse-snd-iad.ces.engageonechat.com',
-        converseHost: 'https://converse.ces.engageonechat.com',
+        host: 'https://webchat-designer-uk.converse.engageone.co',
+        converseHost: 'https://designer-uk.converse.engageone.co',
         serverUserImage: 'https://converseui.ces.engageonechat.com/public/img/eo-square-mark.png',
         container: '#chatcontainer',
         showToolbar: true,
         reConnectDelay: 10000,
-        tenant: 'sa9d798',
-        botId: '4a0eed45-9a0d-49b4-be98-45e5769cf6d0',
+        tenant: 'sa3d20f',
+        botId: '5b9f4a50-7a8f-11eb-a88f-3fc8890d9f01',
         title: 'Chat With Us',
         startPhrase: 'start',
         hideIcon: 'fa-times', // See: https://fontawesome.com/icons?d=gallery&m=free
@@ -83,9 +84,9 @@
           id: 'TT00001',
           first_name: 'Friend',
           last_name: 'Any',
-          full_name: 'Customer Any',
+          full_name: 'Customer Any'
         },
-        startPhrase,
+        startPhrase
       };
 
       var webClient = ConverseWebClient.init(options);

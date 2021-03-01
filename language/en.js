@@ -57,7 +57,7 @@ var Translations = {
       icon: 'share'
     },
     button3: {
-      url: '#',
+      url: 'https://bot.dcsdemo.nl/home',
       label: 'Policy\nDocuments',
       icon: 'website'
     },
