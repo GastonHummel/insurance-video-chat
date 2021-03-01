@@ -47,15 +47,25 @@ var Translations = {
    */
   CtaButtonSettings: {
     button1: {
-      card: 'b421402e',
-      label: 'Schedule a Conversation',
-      icon: 'contact',
+      url: '#',
+      label: 'My Account',
+      icon: 'contact'
     },
     button2: {
+      url: '#',
+      label: 'Mobile App',
+      icon: 'share'
+    },
+    button3: {
+      url: '#',
+      label: 'Policy\nDocuments',
+      icon: 'website'
+    },
+    button4: {
       chat: '',
       label: 'Chat with us',
-      icon: 'save',
-    },
+      icon: 'save'
+    }
   },
 
   /**
@@ -88,36 +98,36 @@ var Translations = {
       states: [
         {
           cardId: '5e2b69f7',
-          width: 25,
-        },
-      ],
+          width: 25
+        }
+      ]
     },
     {
-      label: 'Claim Details',
+      label: 'Existing\nClaim',
       states: [
         {
           cardId: '0f66cfa4',
-          width: 25,
-        },
-      ],
+          width: 25
+        }
+      ]
+    },
+    {
+      label: 'New\nClaim',
+      states: [
+        {
+          cardId: 'e7eeadd7',
+          width: 25
+        }
+      ]
     },
     {
       label: 'Q&amp;A',
       states: [
         {
-          cardId: 'e7eeadd7',
-          width: 25,
-        },
-      ],
-    },
-    {
-      label: 'Next Steps',
-      states: [
-        {
           cardId: '397f5895',
-          width: 25,
-        },
-      ],
-    },
-  ],
+          width: 25
+        }
+      ]
+    }
+  ]
 };
