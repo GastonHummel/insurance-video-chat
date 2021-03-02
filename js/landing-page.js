@@ -2199,6 +2199,7 @@ var iFrameCommunication = function () {
             iFrameEvents.showLowBandwidthInfo(e.data.data);
             break;
           case messagesToHandle.setBotUrl:
+            console.log(`data: ${JSON.stringify(e.data, null, 2)}`);
             $('#boturl').attr('data-boturl', e.data.url);
             break;
         }
