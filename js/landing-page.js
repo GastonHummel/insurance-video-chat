@@ -1186,10 +1186,14 @@ var CtaButtons = {
           // chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
           // const boturl = $('body').data('boturl');
           // chatIframe.src = './assets/chatbot.html';
-          chatIframe.src = $('#boturl').data('boturl');
-          setTimeout(() => {
-            chatDiv.classList.add('show-chat');
-          }, 1);
+          const params = new URLSearchParams(window.parent.location.search);
+          const uid = params.get('uid');
+          $.getJSON(`https://g1xh3d1dya.execute-api.us-east-2.amazonaws.com/dynamoGet?uid=${uid}`, (data) => {
+            chatIframe.src = data.Item.boturl;
+            setTimeout(() => {
+              chatDiv.classList.add('show-chat');
+            }, 1);
+          });
         }
 
         // $('#cvChatContainer').find('#cvMessages').empty();
@@ -2180,8 +2184,7 @@ var iFrameCommunication = function () {
         var messagesToHandle = {
           showCustomError: 'showCustomError',
           closeLowBandwidthCard: 'closeLowBandwidthCard',
-          showLowBandwidthInfo: 'showLowBandwidthInfo',
-          setBotUrl: 'setBotUrl'
+          showLowBandwidthInfo: 'showLowBandwidthInfo'
         };
 
         if (e.data && e.data.message && messagesToHandle[e.data.message] !== undefined && isEventInvalid(e)) {
@@ -2197,10 +2200,6 @@ var iFrameCommunication = function () {
             break;
           case messagesToHandle.showLowBandwidthInfo:
             iFrameEvents.showLowBandwidthInfo(e.data.data);
-            break;
-          case messagesToHandle.setBotUrl:
-            console.log(`data: ${JSON.stringify(e.data, null, 2)}`);
-            $('#boturl').attr('data-boturl', e.data.url);
             break;
         }
       },
