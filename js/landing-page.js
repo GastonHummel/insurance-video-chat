@@ -1181,9 +1181,9 @@ var CtaButtons = {
         const chatIframe = document.querySelector('#chatIframe');
 
         if (button.label === 'New claim') {
-          chatIframe.src = './assets/chatbot.html';
-        } else if (button.label === 'Chat with us') {
           chatIframe.src = './assets/chatbotNewClaim.html';
+        } else if (button.label === 'Chat with us') {
+          chatIframe.src = './assets/chatbot.html';
         }
 
         if (chatDiv.classList.contains('show-chat')) {
