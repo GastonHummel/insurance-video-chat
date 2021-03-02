@@ -1186,14 +1186,10 @@ var CtaButtons = {
           // chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
           // const boturl = $('body').data('boturl');
           // chatIframe.src = './assets/chatbot.html';
-          const params = new URLSearchParams(window.parent.location.search);
-          const uid = params.get('uid');
-          $.getJSON(`https://g1xh3d1dya.execute-api.us-east-2.amazonaws.com/dynamoGet?uid=${uid}`, (data) => {
-            chatIframe.src = data.Item.boturl;
-            setTimeout(() => {
-              chatDiv.classList.add('show-chat');
-            }, 1);
-          });
+          chatIframe.src = $('#boturl').data('boturl');
+          setTimeout(() => {
+            chatDiv.classList.add('show-chat');
+          }, 1);
         }
 
         // $('#cvChatContainer').find('#cvMessages').empty();
