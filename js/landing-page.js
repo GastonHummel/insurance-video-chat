@@ -120,7 +120,7 @@ var Utils = {
 
   getFullYear: function () {
     return new Date().getFullYear();
-  },
+  }
 };
 
 var BufferStatus = {
@@ -204,7 +204,7 @@ var BufferStatus = {
     if (typeof state === 'string') {
       $('#jsSectionInner' + state).css('width', percentage + '%');
     }
-  },
+  }
 };
 
 var ClosedCaptionSelector = {
@@ -246,8 +246,8 @@ var ClosedCaptionSelector = {
       //off or on
       var newValue = $(this).data('value');
       ClosedCaptionSelector.setClosedCaptions(newValue);
-    },
-  },
+    }
+  }
 };
 
 var ContrastProgress = {
@@ -304,7 +304,7 @@ var ContrastProgress = {
     $('.jsTimelineChapter').each(function appendChapterToContrast(i, chapter) {
       $(chapter).clone(true).appendTo('#jsTimelineContrastFixed');
     });
-  },
+  }
 };
 
 var KeyboardInputController = {
@@ -383,7 +383,7 @@ var KeyboardInputController = {
                 //Limiting the percentage to 99.9% as 100% seems to break the rewind/fast-forward functionality
                 var percent = Math.min(
                   (VideoPlayerInterface.iframeWindow.rtc.player.vars.currentTime / VideoPlayerInterface.iframeWindow.rtc.player.vars.videoDuration) * 100,
-                  99.9,
+                  99.9
                 );
                 VideoPlayerInterface.iframeWindow.rtc.timeline.slideCurrentState(RTCVisit.currentState, null, percent);
               }
@@ -434,7 +434,7 @@ var KeyboardInputController = {
         }
       }
     });
-  },
+  }
 };
 
 var LanguageSelector = {
@@ -711,8 +711,8 @@ var LanguageSelector = {
       LanguageSelector.loadLanguageJSON(newLang);
       LanguageSelector.setLanguage(newLang);
       ClosedCaptionSelector.setClosedCaptions('off');
-    },
-  },
+    }
+  }
 };
 
 var Promos = {
@@ -789,8 +789,8 @@ var Promos = {
         'promo.click',
         JSON.stringify({
           trackingName: promo.trackingName,
-          url: promo.url,
-        }),
+          url: promo.url
+        })
       );
     }
 
@@ -805,8 +805,8 @@ var Promos = {
 
     click: function (e) {
       Promos.click($(this).data('promo'));
-    },
-  },
+    }
+  }
 };
 
 /**
@@ -817,7 +817,7 @@ var QualitySettings = {
   LOW: '360p',
   MEDIUM: '540p',
   HIGH: '720p',
-  FULL_HD: '1080p',
+  FULL_HD: '1080p'
 };
 
 var QualitySelector = {
@@ -937,8 +937,8 @@ var QualitySelector = {
       $('#jsSettingsButtonPopout').show();
       $('#jsQualitySelectorPopout').hide();
       $('#jsQualityMenuItem').focus();
-    },
-  },
+    }
+  }
 };
 
 var SettingsPanel = {
@@ -1014,8 +1014,8 @@ var SettingsPanel = {
         $('#jsQualitySelectorPopout').hide();
         $('#jsLanguageSelectorPopout').hide();
       }
-    },
-  },
+    }
+  }
 };
 
 var SocialIcons = {
@@ -1090,14 +1090,14 @@ var SocialIcons = {
         VideoPlayerInterface.iframeWindow.rtc.utils.track('socialicon.click', icon);
         window.open(icon.url, '_blank');
       }
-    },
-  },
+    }
+  }
 };
 
 // SideButtons.pausedOnOpen is used in the close side card handler in the interaction card JavaScript so rather
 // than update the video project (for each language) adding functionality here to handle closing side cards
 var SideButtons = {
-  pausedOnOpen: false,
+  pausedOnOpen: false
 };
 
 var CtaButtons = {
@@ -1183,7 +1183,10 @@ var CtaButtons = {
         if (chatDiv.classList.contains('show-chat')) {
           chatDiv.classList.remove('show-chat');
         } else {
-          chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
+          // chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
+          // const boturl = $('body').data('boturl');
+          // chatIframe.src = './assets/chatbot.html';
+          chatIframe.src = $('body').data('boturl');
           setTimeout(() => {
             chatDiv.classList.add('show-chat');
           }, 1);
@@ -1297,8 +1300,8 @@ var CtaButtons = {
 
     click: function (e) {
       CtaButtons.buttonClick($(this).data('button'));
-    },
-  },
+    }
+  }
 };
 
 var Timeline = {
@@ -1707,8 +1710,8 @@ var Timeline = {
      */
     toggleFullscreen: function () {
       FullScreenHandler.toggle();
-    },
-  },
+    }
+  }
 };
 
 var VideoPlayerInterface = {
@@ -1942,8 +1945,8 @@ var VideoPlayerInterface = {
           console.error(exception); // TODO: change this line
         }
       }
-    },
-  },
+    }
+  }
 };
 
 var VolumeSlider = {
@@ -2141,12 +2144,12 @@ var VolumeSlider = {
           VolumeSlider.setVolume(pxFromLeftOfBar / widthOfBar);
         }
       }
-    },
-  },
+    }
+  }
 };
 var iFrameCommunication = function () {
   var object = {
-    initialize: init,
+    initialize: init
   };
 
   return object;
@@ -2178,7 +2181,7 @@ var iFrameCommunication = function () {
         var messagesToHandle = {
           showCustomError: 'showCustomError',
           closeLowBandwidthCard: 'closeLowBandwidthCard',
-          showLowBandwidthInfo: 'showLowBandwidthInfo',
+          showLowBandwidthInfo: 'showLowBandwidthInfo'
         };
 
         if (e.data && e.data.message && messagesToHandle[e.data.message] !== undefined && isEventInvalid(e)) {
@@ -2197,7 +2200,7 @@ var iFrameCommunication = function () {
             break;
         }
       },
-      false,
+      false
     );
   }
 
@@ -2335,7 +2338,7 @@ var iFrameEvents = {
     if ($lowBandwidthBar.length > 0) {
       $(element).fadeIn();
     }
-  },
+  }
 };
 
 var MobileOrientationHandler = {
@@ -2430,8 +2433,8 @@ var MobileOrientationHandler = {
       }
 
       MobileOrientationHandler.resizeVideoArea();
-    },
-  },
+    }
+  }
 };
 
 var FullScreenHandler = {
@@ -2570,8 +2573,8 @@ var FullScreenHandler = {
       }
 
       $('html').toggleClass('full-height-timeline', FullScreenHandler.allowFullHeightTimeline());
-    },
-  },
+    }
+  }
 };
 
 /**
