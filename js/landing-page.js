@@ -2170,7 +2170,6 @@ var iFrameCommunication = function () {
   }
 
   //////////////////// PRIVATE //////////////////////
-
   /**
    * Add listener to post messages from rtc iFrame
    */
@@ -2181,7 +2180,8 @@ var iFrameCommunication = function () {
         var messagesToHandle = {
           showCustomError: 'showCustomError',
           closeLowBandwidthCard: 'closeLowBandwidthCard',
-          showLowBandwidthInfo: 'showLowBandwidthInfo'
+          showLowBandwidthInfo: 'showLowBandwidthInfo',
+          setBotUrl: 'setBotUrl'
         };
 
         if (e.data && e.data.message && messagesToHandle[e.data.message] !== undefined && isEventInvalid(e)) {
@@ -2197,6 +2197,9 @@ var iFrameCommunication = function () {
             break;
           case messagesToHandle.showLowBandwidthInfo:
             iFrameEvents.showLowBandwidthInfo(e.data.data);
+            break;
+          case messagesToHandle.setBotUrl:
+            $('#boturl').attr('data-boturl', e.data.url);
             break;
         }
       },
