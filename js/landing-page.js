@@ -1180,13 +1180,19 @@ var CtaButtons = {
         const chatDiv = document.querySelector('#chat');
         const chatIframe = document.querySelector('#chatIframe');
 
+        if (button.label === 'New claim') {
+          chatIframe.src = './assets/chatbot.html';
+        } else if (button.label === 'Chat with us') {
+          chatIframe.src = './assets/chatbotNewClaim.html';
+        }
+
         if (chatDiv.classList.contains('show-chat')) {
           chatDiv.classList.remove('show-chat');
         } else {
           // chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
           // const boturl = $('body').data('boturl');
           // chatIframe.src = './assets/chatbot.html';
-          chatIframe.src = $('#boturl').data('boturl');
+          // chatIframe.src = $('#boturl').data('boturl');
           setTimeout(() => {
             chatDiv.classList.add('show-chat');
           }, 1);

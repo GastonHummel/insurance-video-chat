@@ -63,6 +63,11 @@ var Translations = {
     },
     button4: {
       chat: '',
+      label: 'New claim',
+      icon: 'email'
+    },
+    button5: {
+      chat: '',
       label: 'Chat with us',
       icon: 'save'
     }
