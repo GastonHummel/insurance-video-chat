@@ -41,6 +41,12 @@ function UrlParameters(host) {
   };
 }
 
+function closeMe() {
+  e.preventDefault();
+  console.log('close-chat-now clicked');
+  $('#chat', window.parent.document).removeClass('show-chat');
+}
+
 var ConverseUtil = {
   sid: null,
   getCookie: function (name) {
@@ -292,7 +298,7 @@ ConverseWebClient.prototype._buildInterface = function () {
   if (client.showSettingsButton) {
     $btnGroup.append(
       $(
-        '<button id="pb-dropdown" class="pb-dropdown pb-chat-header-button" type="button" data-toggle="dropdown" aria-expanded="false"><a href="#"><i class="fas fa-times close-bot-gaston"></i></a></button>'
+        '<button id="pb-dropdown-off" onclick="closeMe()" class="pb-dropdown pb-chat-header-button" type="button" data-toggle="dropdown" aria-expanded="false"><a href="#"><i class="fas fa-times close-bot-gaston"></i></a></button>'
       )
     );
   }
@@ -1357,11 +1363,3 @@ ConverseWebClient.prototype.enableTextArea = function () {
 ConverseWebClient.prototype.ping = function () {
   this._callSend({}, 'ping');
 };
-
-setTimeout(() => {
-  $('.close-bot-gaston').click((e) => {
-    e.preventDefault();
-    console.log('close-chat-now clicked');
-    $('#chat', window.parent.document).removeClass('show-chat');
-  });
-}, 1000);
