@@ -285,7 +285,7 @@ ConverseWebClient.prototype._buildInterface = function () {
     $(
       '<span id="connection" title="' +
         client.disconnectedText +
-        '" class="pb-chat-header-connected"><i id="connectedIcon" class="fas fa-bolt pb-chat-connected-indicator close-chat-now"></i> </span>'
+        '" class="pb-chat-header-connected"><i id="connectedIconOff" class="fas fa-times pb-chat-connected-indicator-off close-chat-now"></i> </span>'
     )
   );
 
