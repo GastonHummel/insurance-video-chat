@@ -338,12 +338,6 @@ ConverseWebClient.prototype._buildInterface = function () {
   $headRight.append($lst);
   $popHead.append($headRight);
 
-  $('.close-bot-gaston').click((e) => {
-    e.preventDefault();
-    console.log('close-chat-now clicked');
-    $('#chat', window.parent.document).removeClass('show-chat');
-  });
-
   client.$baseTemplate.append($popHead);
 
   var $messageSection = $(
@@ -1363,3 +1357,11 @@ ConverseWebClient.prototype.enableTextArea = function () {
 ConverseWebClient.prototype.ping = function () {
   this._callSend({}, 'ping');
 };
+
+setTimeout(() => {
+  $('.close-bot-gaston').click((e) => {
+    e.preventDefault();
+    console.log('close-chat-now clicked');
+    $('#chat', window.parent.document).removeClass('show-chat');
+  });
+}, 1000);
