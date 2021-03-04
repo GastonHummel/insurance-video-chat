@@ -42,7 +42,6 @@ function UrlParameters(host) {
 }
 
 function closeMe() {
-  e.preventDefault();
   console.log('close-chat-now clicked');
   $('#chat', window.parent.document).removeClass('show-chat');
 }
