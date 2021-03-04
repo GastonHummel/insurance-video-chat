@@ -295,12 +295,6 @@ ConverseWebClient.prototype._buildInterface = function () {
         '<button id="pb-dropdown" class="pb-dropdown pb-chat-header-button" type="button" data-toggle="dropdown" aria-expanded="false"><a href="#"><i class="fas fa-times close-bot-gaston"></i></a></button>'
       )
     );
-
-    $('.close-bot-gaston').click((e) => {
-      e.preventDefault();
-      console.log('close-chat-now clicked');
-      $('#chat', window.parent.document).removeClass('show-chat');
-    });
   }
 
   var $lst = $('<div id="menu" class="pb-dropdown-content"></div>');
@@ -343,6 +337,12 @@ ConverseWebClient.prototype._buildInterface = function () {
   $headRight.append($btnGroup);
   $headRight.append($lst);
   $popHead.append($headRight);
+
+  $('.close-bot-gaston').click((e) => {
+    e.preventDefault();
+    console.log('close-chat-now clicked');
+    $('#chat', window.parent.document).removeClass('show-chat');
+  });
 
   client.$baseTemplate.append($popHead);
 
