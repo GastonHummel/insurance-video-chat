@@ -291,6 +291,7 @@ ConverseWebClient.prototype._buildInterface = function () {
 
   $('.close-chat-now').click((e) => {
     e.preventDefault();
+    console.log('close-chat-now clicked');
     $('#chat', window.parent.document).removeClass('show-chat');
   });
 
