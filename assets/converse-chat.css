@@ -33,14 +33,14 @@
 
 @supports (-webkit-overflow-scrolling: touch) {
   /* CSS specific to iOS devices */
-  .fa-cog {
+  .fa-times {
     left: -7px;
     position: relative;
   }
-  .fa-times {
+  /* .fa-times {
     left: -5px;
     position: relative;
-  }
+  } */
 }
 
 .pb-chat-popup-box {

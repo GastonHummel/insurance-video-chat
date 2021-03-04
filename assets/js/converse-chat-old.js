@@ -285,22 +285,22 @@ ConverseWebClient.prototype._buildInterface = function () {
     $(
       '<span id="connection" title="' +
         client.disconnectedText +
-        '" class="pb-chat-header-connected"><i id="connectedIcon" class="fas fa-bolt pb-chat-connected-indicator"></i> </span>'
+        '" class="pb-chat-header-connected"><i id="connectedIconOff" class="fas fa-times pb-chat-connected-indicator-off close-chat-now"></i> </span>'
     )
   );
+
+  $('.close-chat-now').click((e) => {
+    e.preventDefault();
+    console.log('close-chat-now clicked');
+    $('#chat', window.parent.document).removeClass('show-chat');
+  });
 
   if (client.showSettingsButton) {
     $btnGroup.append(
       $(
-        '<button id="pb-dropdown" class="pb-dropdown pb-chat-header-button" type="button" data-toggle="dropdown" aria-expanded="false"><a href="#"><i class="fas fa-times close-bot-gaston"></i></a></button>'
+        '<button id="pb-dropdown" class="pb-dropdown pb-chat-header-button" type="button" data-toggle="dropdown" aria-expanded="false"><a href="#"><i class="fas fa-times"></i></a></button>'
       )
     );
-
-    $('.close-bot-gaston').click((e) => {
-      e.preventDefault();
-      console.log('close-chat-now clicked');
-      $('#chat', window.parent.document).removeClass('show-chat');
-    });
   }
 
   var $lst = $('<div id="menu" class="pb-dropdown-content"></div>');
