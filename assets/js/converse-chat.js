@@ -12,7 +12,7 @@ function UrlParameters(host) {
   this.setParameter = function (param, value) {
     data[param] = {
       type: 'standard',
-      value: value,
+      value: value
     };
   };
 
@@ -98,7 +98,7 @@ var ConverseUtil = {
     } catch (e) {
       return undefined;
     }
-  },
+  }
 };
 
 function ConverseWebClient(options) {
@@ -156,7 +156,7 @@ function ConverseWebClient(options) {
     onAgentDisconnected: options.onAgentDisconnected || noop,
     onAgentReconnected: options.onAgentReconnected || noop,
     onDisconnected: options.onDisconnected || noop,
-    onConnected: options.onConnected || noop,
+    onConnected: options.onConnected || noop
   };
 }
 
@@ -185,7 +185,7 @@ ConverseWebClient.prototype.initSocket = function () {
     'attached-text': client.onAttachedText.bind(client),
     'attached-error': client.onAttachedErrorText.bind(client),
     connect: client.onConnect.bind(client),
-    system: client.onSystemMessage.bind(client),
+    system: client.onSystemMessage.bind(client)
   };
 
   var protocol = window.location.protocol.indexOf('https') > -1 ? 'wss' : 'wss';
@@ -259,7 +259,7 @@ ConverseWebClient.prototype._init = function (callback) {
       if (client.showHistory) {
         client.renderHistory.call(client, res.messages);
       }
-    },
+    }
   });
 
   client._disableChatWindow();
@@ -285,15 +285,20 @@ ConverseWebClient.prototype._buildInterface = function () {
     $(
       '<span id="connection" title="' +
         client.disconnectedText +
-        '" class="pb-chat-header-connected"><i id="connectedIcon" class="fas fa-bolt pb-chat-connected-indicator"></i> </span>',
-    ),
+        '" class="pb-chat-header-connected"><i id="connectedIcon" class="fas fa-bolt pb-chat-connected-indicator close-chat-now"></i> </span>'
+    )
   );
+
+  $('.close-chat-now').click((e) => {
+    e.preventDefault();
+    $('#chat', window.parent.document).removeClass('show-chat');
+  });
 
   if (client.showSettingsButton) {
     $btnGroup.append(
       $(
-        '<button id="pb-dropdown" class="pb-dropdown pb-chat-header-button" type="button" data-toggle="dropdown" aria-expanded="false"><a href="#"><i class="fas fa-times"></i></a></button>',
-      ),
+        '<button id="pb-dropdown" class="pb-dropdown pb-chat-header-button" type="button" data-toggle="dropdown" aria-expanded="false"><a href="#"><i class="fas fa-times"></i></a></button>'
+      )
     );
   }
 
@@ -319,8 +324,8 @@ ConverseWebClient.prototype._buildInterface = function () {
           '<i class="pb-chat-maximize-icon fas ' +
           client.maximizeIcon +
           '"></i>' +
-          '</button>',
-      ),
+          '</button>'
+      )
     );
   }
 
@@ -329,8 +334,8 @@ ConverseWebClient.prototype._buildInterface = function () {
       $(
         '<button data-widget="remove" id="closeChat" class="pb-chat-header-button pull-right" type="button"><a href="#"><i class="fas ' +
           client.hideIcon +
-          '"></i></a></button>',
-      ),
+          '"></i></a></button>'
+      )
     );
   }
 
@@ -341,13 +346,13 @@ ConverseWebClient.prototype._buildInterface = function () {
   client.$baseTemplate.append($popHead);
 
   var $messageSection = $(
-    '<div id="messagesWrapper" class="pb-chat-popup-messages' + (this.showToolbar ? ' pb-adjust-message-wrapper' : '') + '"></div>',
+    '<div id="messagesWrapper" class="pb-chat-popup-messages' + (this.showToolbar ? ' pb-adjust-message-wrapper' : '') + '"></div>'
   ).append($('<div id="messages" class="pb-chat-direct-chat-messages"></div>'));
 
   client.$baseTemplate.append($messageSection);
 
   var $footer = $('<div class="pb-chat-popup-messages-footer"></div>').append(
-    $('<div id="typing" class="pb-chat-typing-indicator"><span></span><span></span><span></span></div>'),
+    $('<div id="typing" class="pb-chat-typing-indicator"><span></span><span></span><span></span></div>')
   );
 
   var $sendField = $('<textarea />')
@@ -383,7 +388,7 @@ ConverseWebClient.prototype._buildInterface = function () {
           '    <i class="fas fa-paperclip"></i>' +
           '</label><input id="' +
           id +
-          '-pb-file-upload" type="file" class="pb-file-upload" name="fileToUpload" multiple>',
+          '-pb-file-upload" type="file" class="pb-file-upload" name="fileToUpload" multiple>'
       );
 
       $footer.append('<div id="' + id + '-pb-file-uploader"></div>');
@@ -462,14 +467,14 @@ ConverseWebClient.prototype.onAttachedText = function (message) {
   }
   this.addChatMessage({
     direction: message.direction,
-    message: message.data.originalName,
+    message: message.data.originalName
   });
 };
 
 ConverseWebClient.prototype.onAttachedErrorText = function (message) {
   this.addChatMessage({
     direction: 'error',
-    message: (this.downloadErrorText || message.msg).replace('${name}', message.name),
+    message: (this.downloadErrorText || message.msg).replace('${name}', message.name)
   });
 };
 
@@ -573,7 +578,7 @@ ConverseWebClient.prototype.openBot = function (tenant, bot, user) {
 ConverseWebClient.prototype.text = function (message) {
   this.addChatMessage({
     direction: 'inbound',
-    message: message.text.type === 'card' ? message.text.text : message.text,
+    message: message.text.type === 'card' ? message.text.text : message.text
   });
 };
 
@@ -777,7 +782,7 @@ ConverseWebClient.prototype.renderHistory = function (history) {
     'attachment',
     'attached-text',
     'attached-error',
-    'connect',
+    'connect'
   ];
 
   if (history.length) {
@@ -799,20 +804,20 @@ ConverseWebClient.prototype.renderHistory = function (history) {
         case 'text':
           this.addChatMessage({
             direction: message.direction,
-            message: message.data.message.text.type === 'card' ? message.data.message.text.text : message.data.message.text,
+            message: message.data.message.text.type === 'card' ? message.data.message.text.text : message.data.message.text
           });
           break;
         case 'postback':
           this.addChatMessage({
             direction: message.direction,
-            message: message.data.message.title || message.data.message.text,
+            message: message.data.message.title || message.data.message.text
           });
           break;
         case 'buttons':
           this.addButtonMessage({
             direction: message.direction,
             text: message.data.data.text,
-            buttons: message.data.data.buttons,
+            buttons: message.data.data.buttons
           });
           break;
         case 'card':
@@ -821,26 +826,26 @@ ConverseWebClient.prototype.renderHistory = function (history) {
         case 'buttonCard':
           this.onCardButton({
             direction: message.direction,
-            data: message.data.data,
+            data: message.data.data
           });
           break;
         case 'quick_replies':
           this.addQuickReplyMessage({
             direction: message.direction,
             text: message.data.data.text,
-            quick_replies: message.data.data.quick_replies,
+            quick_replies: message.data.data.quick_replies
           });
           break;
         case 'attachment':
           this.onAttachment({
             direction: message.direction === 'inbound' ? 'outbound' : 'inbound',
-            data: message.data.data,
+            data: message.data.data
           });
           break;
         case 'attached-text':
           this.onAttachedText({
             direction: message.direction,
-            data: message.data.data,
+            data: message.data.data
           });
           break;
         default:
@@ -855,7 +860,7 @@ ConverseWebClient.prototype.sendPostBack = function (payload, title, message) {
     this.sendPostBackSilent(payload, title, message);
     this.addChatMessage({
       direction: 'outbound',
-      message: title,
+      message: title
     });
   }
 };
@@ -870,7 +875,7 @@ ConverseWebClient.prototype.sendPostBackSilent = function (payload, title, messa
   var msg = {
     text: payload || title,
     title: title,
-    incomingMessage: message,
+    incomingMessage: message
   };
 
   self._callSend(msg, 'postback');
@@ -884,7 +889,7 @@ ConverseWebClient.prototype.sendStartPhrase = function (payload) {
   var self = this;
   var msg = {
     text: payload,
-    type: 'start',
+    type: 'start'
   };
 
   self._callSend(msg, 'postback');
@@ -901,7 +906,7 @@ ConverseWebClient.prototype.sendMessage = function (text) {
   }
 
   let msg = {
-    text: text,
+    text: text
   };
 
   if (this.sendCallback && !this.sendCallback(text)) {
@@ -913,7 +918,7 @@ ConverseWebClient.prototype.sendMessage = function (text) {
 
   this.addChatMessage({
     direction: 'outbound',
-    message: text,
+    message: text
   });
 
   this.userStopTyping();
@@ -938,7 +943,7 @@ ConverseWebClient.prototype.sendFiles = function (files) {
             file: e.currentTarget.result,
             name: file.name,
             size: file.size,
-            type: file.type,
+            type: file.type
           });
         };
 
@@ -964,8 +969,8 @@ ConverseWebClient.prototype._callSend = function (msg, type) {
     sender: this.user,
     recipient: {
       bot: this.botId,
-      tenant: this.tenant,
-    },
+      tenant: this.tenant
+    }
   });
 
   this.socket.send(payload, { binary: type === 'attachments' });
@@ -1066,7 +1071,7 @@ ConverseWebClient.prototype.addQuickReplyMessage = function (data) {
   me.setWrapperItems(data);
 
   var $buttonContainer = $('<div />', {
-    class: 'pb-chat-direct-chat-text-inbound',
+    class: 'pb-chat-direct-chat-text-inbound'
   });
   if (this.allowHTML) {
     $buttonContainer.text(data.text);
@@ -1075,12 +1080,12 @@ ConverseWebClient.prototype.addQuickReplyMessage = function (data) {
   }
 
   var $messageButtons = $('<div />', {
-    class: 'pb-chat-quick-reply-container',
+    class: 'pb-chat-quick-reply-container'
   });
 
   $.each(data.quick_replies, function (index, button) {
     var $button = $('<span />', {
-      class: 'pb-chat-badge-brand-info quick-reply',
+      class: 'pb-chat-badge-brand-info quick-reply'
     });
 
     if (this.allowHTML) {
@@ -1172,7 +1177,7 @@ ConverseWebClient.prototype.addCardMessage = function (data, options) {
         '<div class="card-nav-item">' +
         '<button class="slick-next-custom" type="button"></button>' +
         '</div>' +
-        '</div>',
+        '</div>'
     );
   }
 
@@ -1183,7 +1188,7 @@ ConverseWebClient.prototype.addCardMessage = function (data, options) {
     prevArrow: cardsWrapper.find('.slick-prev-custom'),
     nextArrow: cardsWrapper.find('.slick-next-custom'),
     dots: false,
-    appendDots: cardsWrapper.find('.card-nav-btns-custom .dots-custom'),
+    appendDots: cardsWrapper.find('.card-nav-btns-custom .dots-custom')
   });
 };
 
@@ -1230,8 +1235,8 @@ ConverseWebClient.prototype.addDownloadMessage = function (data, options) {
           data.link +
           "' alt='" +
           this.downloadText +
-          "'><span class='fas fa-file-download'></span></a>",
-      ),
+          "'><span class='fas fa-file-download'></span></a>"
+      )
     );
   } else {
     $messageBodyDiv.append($("<img class='pb-chat-image' src='" + this.converseHost + '/' + data.link + "' alt='" + data.originalName + "'></img>"));
@@ -1255,7 +1260,7 @@ ConverseWebClient.prototype.addChatMessage = function (data, options) {
       src: data.message,
       frameborder: 0,
       allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
-      allowfullscreen: true,
+      allowfullscreen: true
     });
     $messageBodyDiv = $('<div class="pb-chat-direct-chat-text-' + data.direction + ' ">');
     $messageBodyDiv.append(frame);
@@ -1263,23 +1268,23 @@ ConverseWebClient.prototype.addChatMessage = function (data, options) {
     var a = $('<a>', {
       href: data.message.trim(),
       class: 'pb-rich-link-link',
-      target: '_blank',
+      target: '_blank'
     });
 
     var imageContainer = $('<div>', {
       class: 'pb-rich-link-image',
       css: {
-        display: 'none',
-      },
+        display: 'none'
+      }
     });
 
     var title = $('<div>', {
       class: 'pb-rich-link-title',
-      text: data.message,
+      text: data.message
     });
 
     var description = $('<div>', {
-      class: 'pb-rich-link-description',
+      class: 'pb-rich-link-description'
     });
 
     a.append(imageContainer).append(title).append(description);
@@ -1308,9 +1313,9 @@ ConverseWebClient.prototype.addMessageElement = function (el, data) {
     .find('#messagesWrapper')
     .animate(
       {
-        scrollTop: $(me.baseContainer).find('#messagesWrapper').get(0).scrollHeight,
+        scrollTop: $(me.baseContainer).find('#messagesWrapper').get(0).scrollHeight
       },
-      100,
+      100
     );
 
   this.onTypeOff();
@@ -1322,12 +1327,12 @@ ConverseWebClient.prototype.getTimeStamp = function () {
     today.toLocaleDateString(undefined, {
       year: 'numeric',
       month: '2-digit',
-      day: '2-digit',
+      day: '2-digit'
     }) +
     ' ' +
     today.toLocaleTimeString(undefined, {
       hour: '2-digit',
-      minute: '2-digit',
+      minute: '2-digit'
     })
   );
 };
