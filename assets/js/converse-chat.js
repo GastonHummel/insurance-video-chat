@@ -339,10 +339,10 @@ ConverseWebClient.prototype._buildInterface = function () {
     );
   }
 
-  var $changeOrientation = $('<div class="cv-change-device-orientation"></div>');
+  // var $changeOrientation = $('<div class="cv-change-device-orientation"></div>');
 
   $headRight.append($btnGroup);
-  $popHead.append($changeOrientation);
+  // $popHead.append($changeOrientation);
   $headRight.append($lst);
   $popHead.append($headRight);
 
