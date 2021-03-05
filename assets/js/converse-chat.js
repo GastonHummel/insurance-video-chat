@@ -44,6 +44,7 @@ function UrlParameters(host) {
 function closeMe() {
   console.log('close-chat-now clicked');
   $('#chat', window.parent.document).removeClass('show-chat');
+  $('.cv-change-device-orientation', window.parent.document).removeClass('show-chat');
 }
 
 var ConverseUtil = {
