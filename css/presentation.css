@@ -1363,6 +1363,10 @@
   .cv-change-device-orientation.show-chat {
     display: block;
   }
+  #chat.show-chat {
+    height: 100%;
+    top: 0px;
+  }
 }
 
 @media only screen and (max-width: 820px) and (orientation: portrait) {
