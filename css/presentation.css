@@ -1347,7 +1347,7 @@
 
 @media only screen and (max-width: 820px) and (orientation: landscape) {
   .cv-change-device-orientation {
-    display: block;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1359,6 +1359,9 @@
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100%;
+  }
+  .cv-change-device-orientation.show-chat {
+    display: block;
   }
 }
 

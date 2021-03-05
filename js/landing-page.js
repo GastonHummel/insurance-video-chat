@@ -1178,6 +1178,7 @@ var CtaButtons = {
         }
 
         const chatDiv = document.querySelector('#chat');
+        const rotateDeviceDiv = document.querySelector('.cv-change-device-orientation');
         const chatIframe = document.querySelector('#chatIframe');
 
         if (button.label === 'New claim') {
@@ -1188,6 +1189,7 @@ var CtaButtons = {
 
         if (chatDiv.classList.contains('show-chat')) {
           chatDiv.classList.remove('show-chat');
+          rotateDeviceDiv.classList.remove('show-chat');
         } else {
           // chatIframe.src = './assets/chatbot.html?doc_id=ob-1a2b3c4d5e&section=Mortgage%20Offer';
           // const boturl = $('body').data('boturl');
@@ -1195,6 +1197,7 @@ var CtaButtons = {
           // chatIframe.src = $('#boturl').data('boturl');
           setTimeout(() => {
             chatDiv.classList.add('show-chat');
+            rotateDeviceDiv.classList.add('show-chat');
           }, 1);
         }
 
