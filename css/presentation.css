@@ -1315,7 +1315,7 @@
 #chat {
   position: absolute;
   /* top: 10px; */
-  top: calc(100vh - 675px);
+  top: calc(100vh - 690px);
   /* left: calc((100vw - 300px) / 2); */
   right: 10px;
   /* border: 1px solid black; */
